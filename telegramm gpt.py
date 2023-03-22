@@ -15,7 +15,8 @@ def start(message):
 
 @bot.message_handler(content_types=['text'])
 def handler_text(message):
-    send_message_to_user(message.chat.id, message.text)
+    response=Send(message.text)
+    send_message_to_user(message.chat.id, response['choices'][0].message.content)
     
 
 
@@ -34,8 +35,7 @@ def Send(message):
 
 init_openAI_API_Key()
 print("chat bot is start")
-text= input("")
-response=Send(text)
-print(response['choices'][0].message.content)
+# response['choices'][0].message.content
 
 bot.polling(non_stop=True)
+
