@@ -18,7 +18,9 @@ def handler_text(message):
     response=Send(message.text)
     send_message_to_user(message.chat.id, response['choices'][0].message.content)
     
-
+@bot.message_handler(func=lambda message: True, content_types=['audio', 'photo', 'voice', 'video', 'document', 'location', 'contact', 'sticker'])
+def handler_unsupported_types(message):
+    send_message_to_user(message.chat.id, "Прибачте, ми не підтримуємо такий тип повідомлень")
 
 def send_message_to_user(id, text):
     bot.send_message(id, text)
@@ -35,7 +37,6 @@ def Send(message):
 
 init_openAI_API_Key()
 print("chat bot is start")
-# response['choices'][0].message.content
 
 bot.polling(non_stop=True)
 
