@@ -12,9 +12,11 @@ def init_openAI_API_Key():
 @bot.message_handler(commands=['start'])
 def start(message):
     send_message_to_user(message.chat.id, "Вас вітає Ukrainian GPT!Ви можете запитати в мене будь що чи просто поспілкуватися зі мною")
+    print("До бота підключився користувач:", message.from_user.full_name )                
 
 @bot.message_handler(content_types=['text'])
 def handler_text(message):
+    print( message.from_user.full_name, "написав(ла) повідомлення:", message.text )
     response=Send(message.text)
     send_message_to_user(message.chat.id, response['choices'][0].message.content)
     
