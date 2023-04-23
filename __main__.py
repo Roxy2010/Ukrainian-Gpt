@@ -3,7 +3,7 @@ import telebot
 
 bot=telebot.TeleBot('6167495629:AAGzGE1--4acZwUwIOIzvU1hjJEGX9xkyC8')
 
-API_KEY = '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'
+API_KEY = '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'
 model_id = 'gpt-3.5-turbo'
 
 def init_openAI_API_Key():
