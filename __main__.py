@@ -3,7 +3,7 @@ import telebot
 
 bot=telebot.TeleBot('6167495629:AAGzGE1--4acZwUwIOIzvU1hjJEGX9xkyC8')
 
-API_KEY = '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'
+API_KEY = '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'
 model_id = 'gpt-3.5-turbo'
 
 def init_openAI_API_Key():
@@ -40,6 +40,7 @@ def Send(message):
 
 init_openAI_API_Key()
 print("chat bot is start")
+print(API_KEY)
 
 bot.polling(non_stop=True)
 
